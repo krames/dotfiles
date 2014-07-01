@@ -1,0 +1,12 @@
+[color]
+	status = auto
+	diff = auto
+[core]
+	excludesfile = /Users/krames/.gitignore
+[user]
+	name = Kyle Rames
+	email = kyle@rames.org
+
+[alias]
+        wsfix = !git diff HEAD >P.diff && git reset --hard HEAD && git apply --index --whitespace=fix P.diff && rm -f P.diff
+        wschk = !git diff --check HEAD
