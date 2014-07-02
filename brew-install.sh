@@ -19,6 +19,7 @@ brew install tmux
 brew install chruby
 brew install ruby-install
 
+
 #install textual and xcode
 brew cask install adium
 brew cask install gitx-rowanj
@@ -27,9 +28,8 @@ brew cask install hipchat
 brew cask install iterm2
 brew cask install keyremap4macbook
 brew cask install mou
-brew cask install mumble
 brew cask install onepassword
 brew cask install spotify
-brew cask install virtualbox
+#brew cask install virtualbox
 
 
