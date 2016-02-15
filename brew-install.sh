@@ -16,6 +16,7 @@ brew install chruby
 brew install ruby-install
 brew install heroku-toolbelt
 brew install emacs --use-git-head --cocoa -srgb
+brew linkapps emacs
 brew install gist
 brew install hub
 #brew install mysql
