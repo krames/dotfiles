@@ -32,7 +32,7 @@ brew cask install gitx
 brew cask install google-chrome
 #brew cask install hipchat
 brew cask install iterm2
-brew cask install keyremap4macbook
+brew cask install karabiner
 brew cask install mou
 #brew cask install onepassword
 brew cask install spotify
