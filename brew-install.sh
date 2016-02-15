@@ -23,6 +23,8 @@ brew install hub
 #brew install postgres
 #brew install sqlite
 
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 #brew cask install adium
 brew cask install slack
 brew cask install flux
