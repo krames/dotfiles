@@ -11,7 +11,7 @@ brew tap caskroom/cask
 
 brew install brew-cask
 brew install ssh-copy-id
-brew install tmux
+brew install tmate
 brew install chruby
 brew install ruby-install
 brew install heroku-toolbelt
