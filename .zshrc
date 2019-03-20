@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/krames/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -9,6 +9,10 @@ ZSH_THEME="krames"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -45,15 +49,16 @@ ZSH_THEME="krames"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-#git chruby)
-
-source $ZSH/oh-my-zsh.sh
+plugins=(git zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
 # User configuration
+export GOPATH=~/.go
 
-export PATH="~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/krames/.go/bin:/opt/X11/bin:/usr/local/MacGPG2/bin"
+export PATH="$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/bin"
+export PATH=$PATH:/usr/local/opt/go16/libexec/bin
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -80,7 +85,17 @@ export PATH="~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/krames/.g
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# disable spring
+export DISABLE_SPRING=1
+
+# My changes ##############
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
-chruby 2.4.1
-export GOPATH=~/.go
+
+alias gist='gist -p -c'
+alias remove-merged-branches='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d'
+alias prod_db='heroku pg:psql --app codeship HEROKU_POSTGRESQL_YELLOW'
+alias remove-clone='docker-machine ssh default "sudo rm -rf /tmp/jet/clone"'
+alias pres-code='pbpaste | highlight --line-numbers --font-size 24 --font Inconsolata --style solarized-dark -W -J 75 -j 3 --src-lang ruby -O rtf | pbcopy'
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
