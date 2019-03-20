@@ -1,14 +1,19 @@
 [color]
-	status = auto
-	diff = auto
+        status = auto
+        diff = auto
 [core]
-	excludesfile = /Users/krames/.gitignore
+        excludesfile = /Users/krames/.gitignore
+        editor = /usr/local/bin/vim
+        pager = less -F -X
 [user]
-	name = Kyle Rames
-	email = kyle@rames.org
+        name = Kyle Rames
+        email = kyle@rames.org
 
 [alias]
-        wsfix = !git diff HEAD >P.diff && git reset --hard HEAD && git apply --index --whitespace=fix P.diff && rm -f P.diff
-	wschk = !git diff --check HEAD
+  wsfix = !git diff HEAD >P.diff && git reset --hard HEAD && git apply --index --whitespace=fix P.diff && rm -f P.diff
+  wschk = !git diff --check HEAD
+
 [url "git@github.com:"]
-        insteadOf = https://github.com/
+  insteadOf = https://github.com/
+[github]
+        user = krames
