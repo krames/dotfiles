@@ -54,9 +54,11 @@ plugins=(git zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlig
 # User configuration
 export GOPATH=~/.go
 
-export PATH="$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/bin"
+export PATH="/usr/local/MacGPG2/bin:$GOPATH/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/bin"
 export PATH=$PATH:/usr/local/opt/go16/libexec/bin
 # export MANPATH="/usr/local/man:$MANPATH"
+
+export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,6 +93,7 @@ export DISABLE_SPRING=1
 # My changes ##############
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby-2.7.1
 
 alias gist='gist -p -c'
 alias remove-merged-branches='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d'
@@ -98,4 +101,11 @@ alias prod_db='heroku pg:psql --app codeship HEROKU_POSTGRESQL_YELLOW'
 alias remove-clone='docker-machine ssh default "sudo rm -rf /tmp/jet/clone"'
 alias pres-code='pbpaste | highlight --line-numbers --font-size 24 --font Inconsolata --style solarized-dark -W -J 75 -j 3 --src-lang ruby -O rtf | pbcopy'
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Ngrok
+export NGROK_REMOTE_OMNIV2_ADDR="1.tcp.ngrok.io:27072"
+export NGROK_AUTH='7kmE84koguTY6yckbh3H9_78HRa68ua2d1jSBBaybeM'
+export IOT_OMNIV2_IMAGE=registry.heroku.com/spinpm/omniv2srv:LATEST
+export IOT_ZKV1_IMAGE=registry.heroku.com/spinpm/zkv1srv:LATEST
+export OAUTH_PROVISION_KEY=abc123
+
+gpg --card-status > /dev/null
